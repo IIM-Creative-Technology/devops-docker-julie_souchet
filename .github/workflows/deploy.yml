@@ -19,4 +19,4 @@ jobs:
       - name: Build docker
         run: docker-compose up -d --build
       - name: Linting
-        run: docker exec nextjs yarn lint
+        run: docker run nextjs bash -c "${yarn lint}"
