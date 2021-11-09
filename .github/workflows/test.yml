@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Rename main Git branch
-        run: git config --global init.defaultBranch
+        run: git config --global init.defaultBranch main
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
