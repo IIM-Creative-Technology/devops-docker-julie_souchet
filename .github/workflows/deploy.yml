@@ -16,13 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build docker
-        run: docker-compose up -d --build
-      - run: docker ps -a
+      - uses: docker/build-push-action@v2
+        with:
+          tags: iim-a4-ci-cd_nextjs:latest
+          push: false
   linting:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Linting
-        run: docker run iim-a4-ci-cd_nextjs bash -c "$yarn lint"
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: iim-a4-ci-cd_nextjs:latest
+          run: yarn lint
