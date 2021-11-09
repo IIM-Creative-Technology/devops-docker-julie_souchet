@@ -14,7 +14,7 @@ jobs:
     environment: prod
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.SERVER_USERNAME }}
+      - run: echo ${{ secrets.SERVER_PORT }}
       - uses: actions/checkout@v2
       - name: Log to server
         uses: appleboy/ssh-action@master
