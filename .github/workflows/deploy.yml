@@ -23,5 +23,6 @@ jobs:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Linting
         run: docker run iim-a4-ci-cd_nextjs bash -c "$yarn lint"
