@@ -12,12 +12,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  linting:
+  docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build docker
         run: docker-compose up -d --build
       - run: docker ps -a
+  linting:
+    runs-on: ubuntu-latest
+    steps:
       - name: Linting
-        run: docker run jsouchet_nextjs bash -c "$yarn lint"
+        run: docker run iim-a4-ci-cd_nextjs bash -c "$yarn lint"
