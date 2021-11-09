@@ -22,8 +22,13 @@ jobs:
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_PWD: ${{ secrets.SERVER_PWD }}
         run: |
+<<<<<<< HEAD
           ssh ${SERVER_USERNAME}@${SERVER_IP} -p ${SERVER_PORT}
           ${SERVER_PWD}
+=======
+          ssh "${SERVER_USERNAME}"@"${SERVER_IP}" -p "${SERVER_PORT}"
+          "${SERVER_PWD}"
+>>>>>>> 7c4de16b3cf2f437b3810b5e1f0ac8c050cf663b
       - name: Move to right directory
         run: cd /var/www/test
       - name: Update code
