@@ -25,5 +25,6 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/test
+            git checkout main
             git pull
             docker-compose up -d --build
