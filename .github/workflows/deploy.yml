@@ -11,15 +11,16 @@ on:
 
 jobs:
   lint:
+    environment: prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Log to server
         env:
-          SERVER_USERNAME: ${{ secrets.prod.SERVER_USERNAME }}
-          SERVER_IP: ${{ secrets.prod.SERVER_IP }}
-          SERVER_PORT: ${{ secrets.prod.SERVER_PORT }}
-          SERVER_PWD: ${{ secrets.prod.SERVER_PWD }}
+          SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          SERVER_PWD: ${{ secrets.SERVER_PWD }}
         run: |
           ssh "${SERVER_USERNAME}"@"${SERVER_IP}" -p "${SERVER_PORT}"
           "${SERVER_PWD}"
