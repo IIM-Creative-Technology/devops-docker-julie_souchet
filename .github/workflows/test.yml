@@ -20,6 +20,6 @@ jobs:
       - name: Lint project
         - uses: actions/checkout@v2
         - uses: addnab/docker-run-action@v3
-        with:
-          image: iim-a4-ci-cd_nextjs:latest
-          run: yarn lint
+          with:
+            image: iim-a4-ci-cd_nextjs:latest
+            run: yarn lint
