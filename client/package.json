@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "author": "Julie Souchet",
   "private": true,
   "scripts": {
     "dev": "next dev",
