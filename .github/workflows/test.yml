@@ -15,13 +15,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Rename main Git branch
-        run: git config --global init.defaultBranch main
       - name: Build Docker image
-        uses: docker/build-push-action@v2
-        with:
-          tags: iim-a4-ci-cd_nextjs:latest
-          push: false
+        run: docker-compose up -d --build
       - name: Lint project
         uses: addnab/docker-run-action@v3
         with:
