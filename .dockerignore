@@ -1,0 +1,7 @@
+# .dockerignore file
+.DS_Store
+.next
+node_modules
+.git
+.env
+Dockerfile
