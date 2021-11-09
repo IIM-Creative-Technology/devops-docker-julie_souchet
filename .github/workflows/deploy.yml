@@ -12,11 +12,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build docker
         run: docker-compose up -d --build
+      - run: docker ps -a
       - name: Linting
-        run: docker run nextjs bash -c "$yarn lint"
+        run: docker run jsouchet_nextjs bash -c "$yarn lint"
