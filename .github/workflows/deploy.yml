@@ -15,9 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Log to server
+        env:
+          SERVER_USERNAME: ${{ secrets.prod.SERVER_USERNAME }}
+          SERVER_IP: ${{ secrets.prod.SERVER_IP }}
+          SERVER_PORT: ${{ secrets.prod.SERVER_PORT }}
+          SERVER_PWD: ${{ secrets.prod.SERVER_PWD }}
         run: |
-          ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p ${{ secrets.SERVER_PORT }}
-          ${{ secrets.SERVER_PWD }}
+          ssh "${SERVER_USERNAME}"@"${SERVER_IP}" -p "${SERVER_PORT}"
+          "${SERVER_PWD}"
       - name: Move to right directory
         run: cd /var/www/test
       - name: Update code
