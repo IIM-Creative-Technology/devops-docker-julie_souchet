@@ -14,7 +14,6 @@ jobs:
     environment: prod
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.SERVER_PORT }}
       - uses: actions/checkout@v2
       - name: Log to server
         uses: appleboy/ssh-action@master
@@ -22,7 +21,8 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PWD }}
-          port: ${{ secrets.PORT }}
+          port: ${{ secrets.SERVER_PORT }}
+          script_stop: true
           script: |
             cd /var/www/test
             git pull
