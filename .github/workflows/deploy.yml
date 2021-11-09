@@ -17,14 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Log to server
-        env:
-          SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          SERVER_PWD: ${{ secrets.SERVER_PWD }}
         run: |
-          ssh "${SERVER_USERNAME}"@"${SERVER_IP}" -p "${SERVER_PORT}"
-          "${SERVER_PWD}"
+          ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p ${{ secrets.SERVER_PORT }}
+          ${{ secrets.SERVER_PWD }}
       - name: Move to right directory
         run: cd /var/www/test
       - name: Build Docker image
