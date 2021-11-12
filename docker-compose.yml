@@ -6,8 +6,8 @@ services:
     build: ./client
     ports:
       - "3001:3001"
-    volumes:
-      - "./client/:/home/client"
+#    volumes:
+#      - "./client/:/home/client"
 #   apache:
 #     container_name: iim_apache
 #     hostname: iim_apache
