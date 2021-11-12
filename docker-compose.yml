@@ -5,7 +5,7 @@ services:
     hostname: jsouchet_nextjs
     build: ./client
     ports:
-      - "3000:3000"
+      - "3001:3001"
     volumes:
       - "./client/:/home/client"
 #   apache:
