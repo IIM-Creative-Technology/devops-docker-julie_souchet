@@ -23,7 +23,7 @@ jobs:
           run: yarn lint
   deploy-pre-prod:
     needs: lint
-    environment: prod
+    environment: pre-prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
