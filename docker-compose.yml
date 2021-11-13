@@ -8,6 +8,14 @@ services:
       - "3001:3001"
     networks:
       - jsouchet_cicd
+  mongodb:
+    container_name: jsouchet_mongodb
+    hostname: jsouchet_mongodb
+    build: ./db
+    ports:
+      - "27017:27017"
+    networks:
+      - jsouchet_cicd
 
 networks:
   jsouchet_cicd:
