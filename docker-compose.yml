@@ -18,7 +18,8 @@ services:
       - "${ENV_NAME}_jsouchet_cicd"
 
 networks:
-  "${ENV_NAME}-jsouchet_cicd":
+  jsouchet_cicd:
+    name: "${ENV_NAME}-jsouchet_cicd"
 #    volumes:
 #      - "./client/:/home/client"
 #   apache:
