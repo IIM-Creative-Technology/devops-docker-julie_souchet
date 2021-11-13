@@ -1,24 +1,24 @@
 version: "3.8"
 services:
   nextjs:
-    container_name: ${ENV_NAME}_jsouchet_nextjs
-    hostname: ${ENV_NAME}_jsouchet_nextjs
+    container_name: "${ENV_NAME}_jsouchet_nextjs"
+    hostname: "${ENV_NAME}_jsouchet_nextjs"
     build: ./client
     ports:
       - "${NEXTJS_PORT}:3001"
     networks:
-      - ${ENV_NAME}_jsouchet_cicd
+      - "${ENV_NAME}_jsouchet_cicd"
   mongodb:
-    container_name: ${ENV_NAME}_jsouchet_mongodb
-    hostname: ${ENV_NAME}_jsouchet_mongodb
+    container_name: "${ENV_NAME}_jsouchet_mongodb"
+    hostname: "${ENV_NAME}_jsouchet_mongodb"
     build: ./db
     ports:
       - "${MONGODB_PORT}:27017"
     networks:
-      - ${ENV_NAME}_jsouchet_cicd
+      - "${ENV_NAME}_jsouchet_cicd"
 
 networks:
-  ${ENV_NAME}-jsouchet_cicd:
+  "${ENV_NAME}-jsouchet_cicd":
 #    volumes:
 #      - "./client/:/home/client"
 #   apache:
