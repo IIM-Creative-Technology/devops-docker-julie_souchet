@@ -12,6 +12,8 @@ on:
 jobs:
   deploy-pre-prod:
     environment: pre-prod
+    env:
+      ENV_NAME: pre-prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

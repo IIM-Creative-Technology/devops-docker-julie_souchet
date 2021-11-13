@@ -12,6 +12,8 @@ on:
 jobs:
   deploy:
     environment: prod
+    env:
+      ENV_NAME: prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
