@@ -4,7 +4,7 @@ name: Deploy
 on:
   # Triggers the workflow on push or pull request events but only for the main branches
   push:
-    branches: [main]
+    branches: [develop]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Update Prod Docker in server via SSH
+      - name: Update Pre-Prod Docker in server via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -24,7 +24,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script_stop: true
           script: |
-            cd /var/www/cicd
+            cd /var/www/test
             git checkout main
             git pull
             sudo docker-compose up -d --build
