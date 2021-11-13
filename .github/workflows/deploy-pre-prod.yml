@@ -10,19 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Docker image
-        run: docker-compose up -d --build
-      - name: Lint project
-        uses: addnab/docker-run-action@v3
-        with:
-          image: iim-a4-ci-cd_nextjs:latest
-          run: yarn lint
   deploy-pre-prod:
-    needs: lint
     environment: pre-prod
     runs-on: ubuntu-latest
     steps:
