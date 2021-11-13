@@ -5,7 +5,7 @@ services:
     hostname: ${ENV_NAME}_jsouchet_nextjs
     build: ./client
     ports:
-      - "3001:3001"
+      - "${NEXTJS_PORT}:3001"
     networks:
       - ${ENV_NAME}_jsouchet_cicd
   mongodb:
@@ -13,7 +13,7 @@ services:
     hostname: ${ENV_NAME}_jsouchet_mongodb
     build: ./db
     ports:
-      - "27017:27017"
+      - "${MONGODB_PORT}:27017"
     networks:
       - ${ENV_NAME}_jsouchet_cicd
 
