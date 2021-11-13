@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy-pre-prod
 
 # Controls when the workflow will run
 on:
@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    environment: prod
+  deploy-pre-prod:
+    environment: pre-prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +25,6 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/test
-            git checkout main
+            git checkout develop
             git pull
             sudo docker-compose up -d --build
