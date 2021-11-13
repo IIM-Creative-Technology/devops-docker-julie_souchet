@@ -5,9 +5,22 @@ services:
     hostname: jsouchet_nextjs
     build: ./client
     ports:
-      - "3000:3000"
-    volumes:
-      - "./client/:/home/client"
+      - "3001:3001"
+    networks:
+      - jsouchet_cicd
+  mongodb:
+    container_name: jsouchet_mongodb
+    hostname: jsouchet_mongodb
+    build: ./db
+    ports:
+      - "27017:27017"
+    networks:
+      - jsouchet_cicd
+
+networks:
+  jsouchet_cicd:
+#    volumes:
+#      - "./client/:/home/client"
 #   apache:
 #     container_name: iim_apache
 #     hostname: iim_apache
