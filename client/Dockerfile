@@ -37,4 +37,4 @@ USER nextjs
 EXPOSE 3001
 
 #CMD [ "yarn", "start", "-p", "3001" ]
-CMD find ./
+CMD find ./.next
