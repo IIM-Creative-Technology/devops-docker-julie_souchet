@@ -22,11 +22,9 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/test
-#            env vars for Docker
             echo "ENV_NAME=${{ secrets.ENV_NAME }}" > .env.${{ secrets.ENV_NAME }}
             echo "NEXTJS_PORT=${{ secrets.NEXTJS_PORT }}" >> .env.${{ secrets.ENV_NAME }}
             echo "MONGODB_PORT=${{ secrets.MONGODB_PORT }}" >> .env.${{ secrets.ENV_NAME }}
-#            env vars for Nextjs
             echo "MONGODB_HOST=mongodb" > ./app/.env.${{ secrets.ENV_NAME }}
             echo "MONGODB_PORT=${{ secrets.MONGODB_PORT }}" >> ./app/.env.${{ secrets.ENV_NAME }}
             git checkout develop
