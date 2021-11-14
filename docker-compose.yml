@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   nextjs:
+    depends_on: [mongodb]
     container_name: "${ENV_NAME}_jsouchet_nextjs"
     hostname: "${ENV_NAME}_jsouchet_nextjs"
     build: ./client
@@ -19,38 +20,4 @@ services:
 
 networks:
   jsouchet_cicd:
-    name: "${ENV_NAME}-jsouchet_cicd"
-#    volumes:
-#      - "./client/:/home/client"
-#   apache:
-#     container_name: iim_apache
-#     hostname: iim_apache
-#     build: ./containers/apache
-#     ports:
-#       - '80:80'
-#       - '443:443'
-#     networks:
-#       - lamp
-#     volumes:
-#       - './src/:/usr/local/apache2/htdocs'
-#       - './config/:/usr/local/apache2/conf/extra'
-#   php:
-#     container_name: iim_php
-#     hostname: iim_php
-#     build: ./containers/php
-#     networks:
-#       - lamp
-#     volumes:
-#       - './src/:/var/www/html'
-#     depends_on:
-#       - mysql
-#   mysql:
-#     container_name: iim_mysql
-#     hostname: iim_mysql
-#     build: ./containers/mysql
-#     ports:
-#       - '3306:3306'
-#     environment:
-#       - MYSQL_ROOT_PASSWORD=root
-# networks:
-#   lamp:
+    name: "${ENV_NAME}_jsouchet_cicd"
