@@ -18,9 +18,15 @@ export default async function handler(
     case "POST": {
       try {
         const {count} = req.body;
-        const counter = new CounterModel({count: parseInt(count)});
+        let counter = await CounterModel.findOne().exec();
+
+        if (!counter) {
+         counter = new CounterModel({count: parseInt(count)})
+        } else {
+          counter.count = counter.count+1;
+        }
+
         await counter.save();
-        console.log(`count: ${count}`);
         res.status(200).json({count});
         return;
       } catch (e) {
