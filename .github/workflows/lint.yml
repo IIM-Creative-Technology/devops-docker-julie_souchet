@@ -11,6 +11,11 @@ on:
 
 jobs:
   lint:
+    environment: pre-prod
+    env:
+      ENV_NAME: ${{ secrets.ENV_NAME }}
+      NEXTJS_PORT:${{ secrets.NEXTJS_PORT }}
+      MONGODB_PORT:${{ secrets.MONGODB_PORT }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
