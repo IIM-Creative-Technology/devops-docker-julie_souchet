@@ -2,5 +2,5 @@
 
 TODO
 
- * [environment de pre-production](test.juliesouchet.online)
- * [environment de production](cicd.juliesouchet.online)
+ * [environment de pre-production](https://test.juliesouchet.online)
+ * [environment de production](https://cicd.juliesouchet.online)
