@@ -25,8 +25,10 @@ jobs:
             echo "ENV_NAME=${{ secrets.ENV_NAME }}" > .env.${{ secrets.ENV_NAME }}
             echo "NEXTJS_PORT=${{ secrets.NEXTJS_PORT }}" >> .env.${{ secrets.ENV_NAME }}
             echo "MONGODB_PORT=${{ secrets.MONGODB_PORT }}" >> .env.${{ secrets.ENV_NAME }}
-            echo "MONGODB_HOST=mongodb" > ./app/.env.local
-            echo "MONGODB_PORT=${{ secrets.MONGODB_PORT }}" >> ./app/.env.local
             git checkout main
             git pull
+            cd app
+            echo "MONGODB_HOST=mongodb" > .env.local
+            echo "MONGODB_PORT=${{ secrets.MONGODB_PORT }}" >> .env.local
+            cd ..
             sudo docker-compose --env-file .env.${{ secrets.ENV_NAME }} up -d --build
