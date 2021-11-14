@@ -1,5 +1,3 @@
-# Naively Simple Node Dockerfile
-
 # get the dependencies
 FROM node:17.1.0-alpine3.14 AS deps
 
