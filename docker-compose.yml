@@ -4,9 +4,15 @@ services:
     depends_on: [mongodb]
     container_name: ${ENV_NAME}_jsouchet_nextjs
     hostname: ${ENV_NAME}_jsouchet_nextjs
-    build: ./client
+    build: ./app
     ports:
       - "${NEXTJS_PORT}:3001"
+## for development ##
+#    environment:
+#      NODE_ENV: development
+#    volumes:
+#      - "./app:/home/app"
+## for development ##
   mongodb:
     container_name: ${ENV_NAME}_jsouchet_mongodb
     hostname: ${ENV_NAME}_jsouchet_mongodb
