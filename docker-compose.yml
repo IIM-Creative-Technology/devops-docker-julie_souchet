@@ -8,7 +8,7 @@ services:
     ports:
       - "${NEXTJS_PORT}:3001"
     networks:
-      - jsouchet_cicd
+      - test_network
   mongodb:
     container_name: ${ENV_NAME}_jsouchet_mongodb
     hostname: ${ENV_NAME}_jsouchet_mongodb
@@ -16,7 +16,7 @@ services:
     ports:
       - "${MONGODB_PORT}:27017"
     networks:
-      - jsouchet_cicd
+      - test_network
 
 networks:
-  jsouchet_cicd:
+  test_network:
