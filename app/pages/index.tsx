@@ -2,22 +2,30 @@ import type { NextPage } from 'next'
 import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
-  const [count, setCount] = useState(0);
+  const [counter, setCounter] = useState(0);
 
-  const onClick = () => setCount(count + 1);
-
-  useEffect(() => {
+  const onClick = () => {
     fetch("/api/", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify({count})
+      body: JSON.stringify({ count: counter+1 })
     })
-  }, [count])
+    setCounter(counter + 1);
+  };
+
+  // fetch counter from DB on mount
+  useEffect(() => {
+    fetch("/api/")
+      .then(response => response.json())
+      .then(({count}: {count:number}) => {
+        setCounter(count);
+      })
+  }, [])
 
   return (
-    <button onClick={onClick}>Clicked {count} time{count > 1 ? "s" : ""}</button>
+    <button onClick={onClick}>Clicked {counter} time{counter > 1 ? "s" : ""}</button>
   )
 }
 

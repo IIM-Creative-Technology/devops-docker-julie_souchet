@@ -36,7 +36,9 @@
 #
 #CMD [ "yarn", "start", "-p", "3001" ]
 
+## for development ##
 FROM node:17.1.0-alpine3.14
 WORKDIR /home/app
 EXPOSE 3001
 CMD  [ "yarn", "dev", "-p", "3001" ]
+## for development ##
