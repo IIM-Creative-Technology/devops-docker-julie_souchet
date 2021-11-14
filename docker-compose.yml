@@ -7,6 +7,10 @@ services:
     build: ./app
     ports:
       - "${NEXTJS_PORT}:3001"
+    environment:
+      NODE_ENV: developpement
+    volumes:
+      - "./app:/home/app"
   mongodb:
     container_name: ${ENV_NAME}_jsouchet_mongodb
     hostname: ${ENV_NAME}_jsouchet_mongodb
