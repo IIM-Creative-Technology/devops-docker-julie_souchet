@@ -7,6 +7,7 @@ services:
     build: ./app
     ports:
       - "${NEXTJS_PORT}:3001"
+    restart: on-failure
 ## for development ##
 #    environment:
 #      NODE_ENV: development
@@ -19,3 +20,4 @@ services:
     build: ./db
     ports:
       - "${MONGODB_PORT}:27017"
+    restart: on-failure
