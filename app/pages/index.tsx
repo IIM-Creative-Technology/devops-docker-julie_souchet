@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify({ count: counter+1 })
+      body: JSON.stringify({count: counter + 1})
     })
     setCounter(counter + 1);
   };
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     fetch("/api/")
       .then(response => response.json())
-      .then(({count}: {count:number}) => {
+      .then(({count}: { count: number }) => {
         setCounter(count);
       })
   }, [])
