@@ -14,6 +14,8 @@ COPY . .
 RUN yarn build
 RUN rm -rf node_modules
 RUN yarn install --production --frozen-lockfile --ignore-scripts --prefer-offline
+RUN echo "MONGODB_HOST=mongodb" > .env.local
+RUN echo "MONGODB_PORT=${MONGODB_PORT}" >> .env.local
 
 # run the application
 FROM node:17.1.0-alpine3.14
